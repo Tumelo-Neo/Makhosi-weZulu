@@ -18,7 +18,7 @@ app.use(cors());
 // Serve static files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 // Nodemailer configuration
 const transporter = nodemailer.createTransport({
@@ -59,7 +59,7 @@ app.post('/api/send-email', (req, res) => {
 
 // Handle all other routes (serve the main HTML file)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 // Start the server
